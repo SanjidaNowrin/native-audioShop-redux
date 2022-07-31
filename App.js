@@ -23,17 +23,16 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={{ marginHorizontal: 20, flex: 1 }}>
-        {/* <Provider store={store}> */}
-        {/* <PersistGate loading={null} persistor={persistor}> */}
+      <Provider store={store}>
+        {/* <PersistGate loading={null} persistor={persistor}>  */}
+        <SafeAreaView>
+          <Text>Okay</Text>
 
-        <Text>Okay</Text>
-        {/* <Navigation /> */}
-        <StatusBar />
-        <FlashMessage position="top" floating statusBarHeight={30} />
-        {/* </PersistGate> */}
-        {/* </Provider> */}
-      </SafeAreaView>
+          <StatusBar />
+          <FlashMessage position="top" floating statusBarHeight={30} />
+          {/* </PersistGate> */}
+        </SafeAreaView>
+      </Provider>
     );
   }
 }
