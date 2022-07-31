@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import FlashMessage from "react-native-flash-message";
 import { Provider } from "react-redux";
@@ -9,6 +9,7 @@ import store from "./store";
 // import { PersistGate } from "redux-persist/integration/react";
 // import { persistStore } from "redux-persist";
 import Text from "./components/text/text";
+import Navigation from "./navigation";
 
 // let persistor = persistStore(store);
 
@@ -25,13 +26,14 @@ export default function App() {
     return (
       <Provider store={store}>
         {/* <PersistGate loading={null} persistor={persistor}>  */}
-        <SafeAreaView>
-          <Text>Okay</Text>
-
+        <SafeAreaProvider>
+          {/* <SafeAreaView style={{ flex: 1 }}> */}
+          <Navigation />
+          {/* </SafeAreaView> */}
           <StatusBar />
           <FlashMessage position="top" floating statusBarHeight={30} />
           {/* </PersistGate> */}
-        </SafeAreaView>
+        </SafeAreaProvider>
       </Provider>
     );
   }
